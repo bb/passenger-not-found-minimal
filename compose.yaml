@@ -1,0 +1,12 @@
+services:
+  web:
+    build:
+      context: .
+    image: passenger-not-found-minimal:${TAG:-latest}
+    restart: no
+    environment:
+      SECRET_KEY_BASE: b1df5eef9405a5e9a1d10f312d28a08262d7c3de779e5a250c0175826109bca2ac36937c10cfcfbd25bc0fddb40d9fdc4d783b442a17dc66705b74b2081c2272
+    ports:
+      - "3030:80"
+      - "3031:3000"
+
