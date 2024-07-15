@@ -37,16 +37,6 @@ Rails.application.configure do
   # Store uploaded files on the local file system in a temporary directory.
   config.active_storage.service = :test
 
-  config.action_mailer.perform_caching = false
-
-  # Tell Action Mailer not to deliver emails to the real world.
-  # The :test delivery method accumulates sent emails in the
-  # ActionMailer::Base.deliveries array.
-  config.action_mailer.delivery_method = :test
-
-  # Do not run Jobs asyncronous in Background on tests
-  config.active_job.queue_adapter = :test # Setting needed, otherwise TestAdapter is not used and tests run a lot longer (+60%)
-
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 
@@ -56,11 +46,4 @@ Rails.application.configure do
   # Tell Active Support which deprecation messages to disallow.
   config.active_support.disallowed_deprecation_warnings = []
 
-  # Raises error for missing translations.
-  # config.i18n.raise_on_missing_translations = true
-
-  # Annotate rendered view with file names.
-  # config.action_view.annotate_rendered_view_with_filenames = true
-
-  config.action_mailer.default_options = {from: "no-reply@example.org"}
 end

@@ -1,4 +1,4 @@
-FROM phusion/passenger-ruby31
+FROM phusion/passenger-ruby33
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV DEBCONF_NONINTERACTIVE_SEEN true
