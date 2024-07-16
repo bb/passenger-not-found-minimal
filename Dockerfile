@@ -41,6 +41,9 @@ RUN chown app:app /home/app/webapp
 # pre-install gems for faster building of code changes
 COPY --chown=app:app railsapp/.ruby-version railsapp/Gemfile railsapp/Gemfile.lock /home/app/webapp/
 # && bundle config set --local without "development test"'
+
+RUN gem install bundler --force -N -v "$(tail -n 1 Gemfile.lock | tr -d '[:blank:]\n')" && bundle --version
+
 RUN sudo -Hu app sh -c 'cd /home/app/webapp && bundle config set --local deployment "true" && bundle config set --local path vendor/ruby && bundle install'
 
 COPY --chown=app:app railsapp/. .
